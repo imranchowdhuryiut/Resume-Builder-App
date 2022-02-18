@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.resumebuilder.views.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_editDetailsFragment"
+            app:destination="@id/editDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDetailsFragment"
+        android:name="com.example.resumebuilder.views.fragments.EditDetailsFragment"
+        android:label="fragment_edit_details"
+        tools:layout="@layout/fragment_edit_details" >
+        <action
+            android:id="@+id/action_editDetailsFragment_to_personalDetailsFragment"
+            app:destination="@id/personalDetailsFragment" />
+        <action
+            android:id="@+id/action_editDetailsFragment_to_editObjectiveFragment"
+            app:destination="@id/editObjectiveFragment" />
+        <action
+            android:id="@+id/action_editDetailsFragment_to_editExperienceFragment"
+            app:destination="@id/editExperienceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalDetailsFragment"
+        android:name="com.example.resumebuilder.views.fragments.EditPersonalDetailsFragment"
+        android:label="fragment_personal_details"
+        tools:layout="@layout/fragment_personal_details" />
+    <fragment
+        android:id="@+id/editObjectiveFragment"
+        android:name="com.example.resumebuilder.views.fragments.EditObjectiveFragment"
+        tools:layout="@layout/fragment_edit_objective"
+        android:label="EditObjectiveFragment" />
+    <fragment
+        android:id="@+id/editExperienceFragment"
+        android:name="com.example.resumebuilder.views.fragments.EditExperienceFragment"
+        android:label="fragment_edit_experience"
+        tools:layout="@layout/fragment_edit_experience" />
+</navigation>
