@@ -118,7 +118,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="@android:color/white"
                     android:gravity="center_vertical"
-                    android:text="Skills"
+                    android:text="@string/skills"
                     android:textColor="@android:color/black"
                     app:icon="@drawable/ic_skill"
                     app:iconGravity="end"

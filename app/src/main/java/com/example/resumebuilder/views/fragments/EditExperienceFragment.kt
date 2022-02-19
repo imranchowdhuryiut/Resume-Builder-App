@@ -71,25 +71,25 @@ class EditExperienceFragment : Fragment(), OnItemClickCallback<WorkExperience> {
     }
 
     private fun saveExperience() {
-        val companyName = _binding?.tvCompanyName?.text.toString()
-        val duration = _binding?.tvDuration?.text.toString().toInt()
+        val companyName = _binding?.etCompanyName?.text.toString()
+        val duration = _binding?.etDuration?.text.toString().toInt()
         clearEditView()
-        mList.add(WorkExperience(companyName, duration))
+        mList.add(WorkExperience(companyName = companyName, duration = duration))
         mAdapter.submitList(mList)
         mAdapter.notifyItemChanged(mList.size - 1)
     }
 
     private fun clearEditView() {
-        _binding?.tvCompanyName?.text?.clear()
-        _binding?.tvDuration?.text?.clear()
+        _binding?.etCompanyName?.text?.clear()
+        _binding?.etDuration?.text?.clear()
     }
 
     private fun validateView(view: View): Boolean {
-        if (_binding?.tvCompanyName?.text?.isEmpty() == true) {
+        if (_binding?.etCompanyName?.text?.isEmpty() == true) {
             Snackbar.make(view, "Company name must not be empty", Snackbar.LENGTH_SHORT).show()
             return false
         }
-        if (_binding?.tvDuration?.text?.isEmpty() == true) {
+        if (_binding?.etDuration?.text?.isEmpty() == true) {
             Snackbar.make(view, "Duration must not be empty", Snackbar.LENGTH_SHORT).show()
             return false
         }

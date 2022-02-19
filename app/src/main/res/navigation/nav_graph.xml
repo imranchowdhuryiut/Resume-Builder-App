@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_editDetailsFragment_to_editExperienceFragment"
             app:destination="@id/editExperienceFragment" />
+        <action
+            android:id="@+id/action_editDetailsFragment_to_editSkillsFragment"
+            app:destination="@id/editSkillsFragment" />
     </fragment>
     <fragment
         android:id="@+id/personalDetailsFragment"
@@ -44,4 +47,9 @@
         android:name="com.example.resumebuilder.views.fragments.EditExperienceFragment"
         android:label="fragment_edit_experience"
         tools:layout="@layout/fragment_edit_experience" />
+    <fragment
+        android:id="@+id/editSkillsFragment"
+        android:name="com.example.resumebuilder.views.fragments.EditSkillsFragment"
+        android:label="fragment_edit_skills"
+        tools:layout="@layout/fragment_edit_skills" />
 </navigation>

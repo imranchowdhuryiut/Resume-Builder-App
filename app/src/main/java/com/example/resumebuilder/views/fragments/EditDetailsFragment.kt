@@ -49,7 +49,9 @@ class EditDetailsFragment : Fragment() {
                 )
             }
             btnSkill.setOnClickListener {
-
+                findNavController().navigate(
+                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditSkillsFragment()
+                )
             }
             btnEducationalDetails.setOnClickListener {
 
