@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.resumebuilder.R
 import com.example.resumebuilder.databinding.FragmentEditDetailsBinding
 
 class EditDetailsFragment : Fragment() {
 
     private var _binding: FragmentEditDetailsBinding? = null
+
+    private val args by navArgs<EditDetailsFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -25,4 +25,10 @@
     <string name="expert">Expert</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="create_a_new_resume">Create a new Resume?</string>
+    <string name="date_colon">Date:</string>
+    <string name="name">Name</string>
+    <string name="speciality">Speciality</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 </resources>
