@@ -23,6 +23,12 @@ class SkillViewModel: ViewModel() {
         }
     }
 
+    fun deleteSkill(model: Skill) {
+        viewModelScope.launch(Dispatchers.Default) {
+            mRepo.deleteSkill(model)
+        }
+    }
+
     fun getSkillsByResumeId(resumeId: Int): LiveData<List<Skill>> {
         return mRepo.getSkillsByResumeId(resumeId)
     }

@@ -14,6 +14,10 @@ class ISkillRepository: SkillRepository {
         ResumeBuilderApp.appDb.skillDao().save(model)
     }
 
+    override suspend fun deleteSkill(model: Skill) {
+        ResumeBuilderApp.appDb.skillDao().delete(model)
+    }
+
     override fun getSkillsByResumeId(resumeId: Int): LiveData<List<Skill>> {
         return ResumeBuilderApp.appDb.skillDao().getSkillsByResume(resumeId)
     }

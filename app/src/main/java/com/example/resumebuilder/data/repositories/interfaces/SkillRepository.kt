@@ -9,6 +9,9 @@ import com.example.resumebuilder.data.model.Skill
 interface SkillRepository {
 
     suspend fun saveSkill(model: Skill)
+
+    suspend fun deleteSkill(model: Skill)
+
     fun getSkillsByResumeId(resumeId: Int): LiveData<List<Skill>>
 
 }

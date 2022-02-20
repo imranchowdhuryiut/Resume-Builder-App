@@ -114,7 +114,7 @@ class EditSkillsFragment : Fragment(), OnItemClickCallback<Skill> {
     }
 
     override fun onClick(model: Skill) {
-
+        mViewModel.deleteSkill(model)
     }
 
 }
