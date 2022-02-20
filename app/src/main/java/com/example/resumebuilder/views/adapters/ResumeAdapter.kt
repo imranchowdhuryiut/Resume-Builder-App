@@ -9,6 +9,7 @@ import com.example.resumebuilder.databinding.ItemResumeBinding
 import com.example.resumebuilder.utils.ResumeItemDiff
 import com.example.resumebuilder.utils.dateFormat
 import com.example.resumebuilder.utils.OnResumeClickCallback
+import com.example.resumebuilder.utils.loadImagesWithGlide
 import java.util.*
 
 /**
@@ -49,6 +50,7 @@ class ResumeViewHolder(
         binding.tvResumeName.text = item?.name
         binding.tvResumeSpeciality.text = item?.specialization
         binding.tvResumeDate.text = dateFormat.format(Date(item?.date ?: 0))
+        binding.imgProfile.loadImagesWithGlide(item?.imagePath)
     }
 
     companion object {

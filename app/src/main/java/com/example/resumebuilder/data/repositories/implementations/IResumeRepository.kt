@@ -30,7 +30,27 @@ class IResumeRepository: ResumeRepository {
         ResumeBuilderApp.appDb.resumeDao().saveCareerObjectiveByResume(objective, resumeId)
     }
 
-    override fun getCareerObjectiveByResume(resumeId: Int): LiveData<String> {
+    override fun getCareerObjectiveByResume(resumeId: Int): LiveData<String?> {
         return ResumeBuilderApp.appDb.resumeDao().getCareerObjectiveByResume(resumeId)
+    }
+
+    override suspend fun savePersonalInfo(
+        mobileNumber: String,
+        email: String,
+        address: String,
+        filPath: String,
+        resumeId: Int
+    ) {
+        ResumeBuilderApp.appDb.resumeDao().savePersonalInfoByResume(
+            mobileNumber,
+            email,
+            address,
+            filPath,
+            resumeId
+        )
+    }
+
+    override fun getPersonalInfoByResume(resumeId: Int): LiveData<Resume> {
+        return ResumeBuilderApp.appDb.resumeDao().getPersonalInfoByResume(resumeId)
     }
 }
