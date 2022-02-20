@@ -20,4 +20,12 @@ abstract class ResumeDao: BaseDao<Resume>() {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun saveResume(model: Resume): Long
 
+    @Query("UPDATE resumes SET objective = :objective WHERE id = :resumeId")
+    abstract fun saveCareerObjectiveByResume(objective: String, resumeId: Int)
+
+    @Query("SELECT objective FROM resumes WHERE id = :resumeId")
+    abstract fun getCareerObjectiveByResume(resumeId: Int): LiveData<String>
+
+    //SELECT distinct resumes.id, resumes.name, resumes.objective, skills.skill, skills.rate FROM resumes JOIN skills on resumes.id = skills.resumeId
+
 }

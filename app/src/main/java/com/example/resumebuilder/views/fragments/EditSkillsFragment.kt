@@ -7,13 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.core.view.minusAssign
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resumebuilder.R
 import com.example.resumebuilder.data.model.Skill
 import com.example.resumebuilder.databinding.FragmentEditSkillsBinding
 import com.example.resumebuilder.utils.OnItemClickCallback
+import com.example.resumebuilder.viewModels.SkillViewModel
 import com.example.resumebuilder.views.adapters.SkillAdapter
 import com.google.android.material.snackbar.Snackbar
 
@@ -21,9 +24,11 @@ class EditSkillsFragment : Fragment(), OnItemClickCallback<Skill> {
 
     private var _binding: FragmentEditSkillsBinding? = null
 
-    private val mList: MutableList<Skill> = mutableListOf()
-
     private val mAdapter: SkillAdapter = SkillAdapter(this)
+
+    private val args by navArgs<EditSkillsFragmentArgs>()
+
+    private val mViewModel by viewModels<SkillViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +42,13 @@ class EditSkillsFragment : Fragment(), OnItemClickCallback<Skill> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        getSavedSkills()
+    }
+
+    private fun getSavedSkills() {
+        mViewModel.getSkillsByResumeId(args.resumeId).observe(viewLifecycleOwner, {
+            mAdapter.submitList(it)
+        })
     }
 
     private fun initView() {
@@ -64,9 +76,12 @@ class EditSkillsFragment : Fragment(), OnItemClickCallback<Skill> {
         val skillName = _binding?.etSkillName?.text.toString()
         val rate = _binding?.root?.findViewById<RadioButton>(_binding?.rgSkill?.checkedRadioButtonId!!)?.text.toString()
         clearEditView()
-        mList.add(Skill(skill = skillName, rate = rate))
-        mAdapter.submitList(mList)
-        mAdapter.notifyItemChanged(mList.size - 1)
+        val model = Skill(
+            resumeId = args.resumeId,
+            rate = rate,
+            skill = skillName
+        )
+        mViewModel.saveSkill(model)
     }
 
     private fun clearEditView() {
@@ -99,7 +114,7 @@ class EditSkillsFragment : Fragment(), OnItemClickCallback<Skill> {
     }
 
     override fun onClick(model: Skill) {
-
+        mViewModel.deleteSkill(model)
     }
 
 }

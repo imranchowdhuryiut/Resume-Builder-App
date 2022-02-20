@@ -43,17 +43,23 @@ class EditDetailsFragment : Fragment() {
             }
             btnObjective.setOnClickListener {
                 findNavController().navigate(
-                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditObjectiveFragment()
+                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditObjectiveFragment(
+                        args.resumeId
+                    )
                 )
             }
             btnExperience.setOnClickListener {
                 findNavController().navigate(
-                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditExperienceFragment()
+                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditExperienceFragment(
+                        args.resumeId
+                    )
                 )
             }
             btnSkill.setOnClickListener {
                 findNavController().navigate(
-                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditSkillsFragment()
+                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditSkillsFragment(
+                        args.resumeId
+                    )
                 )
             }
             btnEducationalDetails.setOnClickListener {

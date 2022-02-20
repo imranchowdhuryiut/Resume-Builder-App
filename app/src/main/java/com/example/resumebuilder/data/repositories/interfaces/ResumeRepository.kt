@@ -14,4 +14,8 @@ interface ResumeRepository {
 
     suspend fun deleteResume(model: Resume)
 
+    suspend fun saveCareerObjective(objective: String, resumeId: Int)
+
+    fun getCareerObjectiveByResume(resumeId: Int): LiveData<String>
+
 }

@@ -8,8 +8,7 @@ import com.example.resumebuilder.data.model.Resume
 import com.example.resumebuilder.databinding.ItemResumeBinding
 import com.example.resumebuilder.utils.ResumeItemDiff
 import com.example.resumebuilder.utils.dateFormat
-import com.example.resumebuilder.utils.onResumeClickCallback
-import java.text.SimpleDateFormat
+import com.example.resumebuilder.utils.OnResumeClickCallback
 import java.util.*
 
 /**
@@ -17,7 +16,7 @@ import java.util.*
  */
 
 class ResumeAdapter (
-    private val mCallBack: onResumeClickCallback<Resume>? = null
+    private val mCallBack: OnResumeClickCallback<Resume>? = null
 ): ListAdapter<Resume, ResumeViewHolder>(ResumeItemDiff) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResumeViewHolder {
         return ResumeViewHolder.createViewHolder(parent, mCallBack)
@@ -31,7 +30,7 @@ class ResumeAdapter (
 
 class ResumeViewHolder(
     private val binding: ItemResumeBinding,
-    private val mCallBack: onResumeClickCallback<Resume>? = null
+    private val mCallBack: OnResumeClickCallback<Resume>? = null
 ): RecyclerView.ViewHolder(binding.root) {
 
     private var mModel: Resume? = null
@@ -55,7 +54,7 @@ class ResumeViewHolder(
     companion object {
         fun createViewHolder(
             parent: ViewGroup,
-            mCallBack: onResumeClickCallback<Resume>? = null
+            mCallBack: OnResumeClickCallback<Resume>? = null
         ): ResumeViewHolder {
             val view = ItemResumeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return ResumeViewHolder(view, mCallBack)

@@ -7,7 +7,7 @@ interface OnItemClickCallback<Model> {
     fun onClick(model: Model)
 }
 
-interface onResumeClickCallback<Model> {
+interface OnResumeClickCallback<Model> {
     fun onDelete(model: Model)
     fun onEdit(model: Model)
 }

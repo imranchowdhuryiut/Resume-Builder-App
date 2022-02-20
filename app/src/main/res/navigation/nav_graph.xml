@@ -44,15 +44,27 @@
         android:id="@+id/editObjectiveFragment"
         android:name="com.example.resumebuilder.views.fragments.EditObjectiveFragment"
         tools:layout="@layout/fragment_edit_objective"
-        android:label="EditObjectiveFragment" />
+        android:label="EditObjectiveFragment" >
+        <argument
+            android:name="resumeId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/editExperienceFragment"
         android:name="com.example.resumebuilder.views.fragments.EditExperienceFragment"
         android:label="fragment_edit_experience"
-        tools:layout="@layout/fragment_edit_experience" />
+        tools:layout="@layout/fragment_edit_experience" >
+        <argument
+            android:name="resumeId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/editSkillsFragment"
         android:name="com.example.resumebuilder.views.fragments.EditSkillsFragment"
         android:label="fragment_edit_skills"
-        tools:layout="@layout/fragment_edit_skills" />
+        tools:layout="@layout/fragment_edit_skills" >
+        <argument
+            android:name="resumeId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
