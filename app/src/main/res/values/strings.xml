@@ -35,4 +35,11 @@
     <string name="open_settings">Open Settings</string>
     <string name="app_permission">App Permission</string>
     <string name="storage">storage</string>
+    <string name="educational_details">Educational Details</string>
+    <string name="degree">Degree</string>
+    <string name="passing_year">Passing Year</string>
+    <string name="grade">Grade</string>
+    <string name="degree_colon">Degree:</string>
+    <string name="passing_year_colon">Passing Year:</string>
+    <string name="grade_colon">Grade:</string>
 </resources>

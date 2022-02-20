@@ -23,6 +23,7 @@ class IResumeRepository: ResumeRepository {
         model.id?.let {
             ResumeBuilderApp.appDb.workExperiencesDao().deleteAllExperiencesByResume(it)
             ResumeBuilderApp.appDb.skillDao().deleteAllSkillsByResume(it)
+            ResumeBuilderApp.appDb.educationDao().deleteAllEducationsByResume(it)
         }
     }
 
