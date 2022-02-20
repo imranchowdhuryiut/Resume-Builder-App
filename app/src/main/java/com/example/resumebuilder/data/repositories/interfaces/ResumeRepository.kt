@@ -16,6 +16,16 @@ interface ResumeRepository {
 
     suspend fun saveCareerObjective(objective: String, resumeId: Int)
 
-    fun getCareerObjectiveByResume(resumeId: Int): LiveData<String>
+    fun getCareerObjectiveByResume(resumeId: Int): LiveData<String?>
+
+    suspend fun savePersonalInfo(
+        mobileNumber: String,
+        email: String,
+        address: String,
+        filPath: String,
+        resumeId: Int
+    )
+
+    fun getPersonalInfoByResume(resumeId: Int): LiveData<Resume>
 
 }

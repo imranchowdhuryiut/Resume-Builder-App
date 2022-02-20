@@ -38,7 +38,7 @@ class EditObjectiveFragment : Fragment() {
 
     private fun getSavedObjective() {
         mViewModel.getCareerObjective(args.resumeId).observe(viewLifecycleOwner, {data->
-            if (data.isNotEmpty()) {
+            if (data?.isNotEmpty() == true) {
                 _binding?.etObjective?.setText(data)
                 _binding?.etObjective?.isEnabled = false
                 _binding?.imgEdit?.visibility = View.VISIBLE

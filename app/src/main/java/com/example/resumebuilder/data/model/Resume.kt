@@ -14,5 +14,9 @@ data class Resume(
     var name: String? = null,
     var objective: String? = null,
     var specialization: String? = null,
+    var mobileNumber: String? = null,
+    var emailAddress: String? = null,
+    var address: String? = null,
+    var imagePath: String? = null,
     var date: Long? = null
 )

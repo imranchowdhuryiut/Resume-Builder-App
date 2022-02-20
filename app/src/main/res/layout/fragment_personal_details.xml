@@ -38,11 +38,20 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_edit"
+                        android:padding="@dimen/_4sdp"
+                        android:layout_gravity="right"
+                        android:id="@+id/imgEdit"
+                        android:background="?selectableItemBackground"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imgProfile"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/ic_user"
+                        android:layout_marginTop="10dp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnChooseImage"
@@ -66,7 +75,8 @@
                         app:hintTextAppearance="@android:style/TextAppearance.Medium">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/form_personal_et_name"
+                            android:id="@+id/etMobileNumber"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/mobile_number" />
@@ -83,7 +93,7 @@
                         app:hintTextAppearance="@android:style/TextAppearance.Medium">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/form_personal_et_email"
+                            android:id="@+id/etEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textEmailAddress"
@@ -101,7 +111,7 @@
                         app:hintTextAppearance="@android:style/TextAppearance.Medium">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/form_personal_et_address"
+                            android:id="@+id/etAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/address" />
@@ -109,7 +119,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/form_personal_btn_save"
+                        android:id="@+id/btnSavePersonalInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
