@@ -20,5 +20,17 @@ class IResumeRepository: ResumeRepository {
 
     override suspend fun deleteResume(model: Resume) {
         ResumeBuilderApp.appDb.resumeDao().delete(model)
+        model.id?.let {
+            ResumeBuilderApp.appDb.workExperiencesDao().deleteAllExperiencesByResume(it)
+            ResumeBuilderApp.appDb.skillDao().deleteAllSkillsByResume(it)
+        }
+    }
+
+    override suspend fun saveCareerObjective(objective: String, resumeId: Int) {
+        ResumeBuilderApp.appDb.resumeDao().saveCareerObjectiveByResume(objective, resumeId)
+    }
+
+    override fun getCareerObjectiveByResume(resumeId: Int): LiveData<String> {
+        return ResumeBuilderApp.appDb.resumeDao().getCareerObjectiveByResume(resumeId)
     }
 }

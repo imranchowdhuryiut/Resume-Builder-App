@@ -25,6 +25,15 @@
             android:paddingRight="@dimen/_4sdp"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit"
+                android:padding="@dimen/_4sdp"
+                android:background="?selectableItemBackground"
+                android:layout_gravity="right"
+                android:id="@+id/imgEdit"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/form_personal_til_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -34,7 +43,7 @@
                 app:hintTextAppearance="@android:style/TextAppearance.Medium">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/form_personal_et_name"
+                    android:id="@+id/etObjective"
                     android:layout_width="match_parent"
                     android:minLines="5"
                     android:textAlignment="textStart"
@@ -44,7 +53,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/form_personal_btn_save"
+                android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

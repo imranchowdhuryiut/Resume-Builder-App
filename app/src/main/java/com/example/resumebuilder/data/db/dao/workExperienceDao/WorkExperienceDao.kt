@@ -12,7 +12,10 @@ import com.example.resumebuilder.data.model.WorkExperience
 @Dao
 abstract class WorkExperienceDao: BaseDao<WorkExperience>() {
 
-    @Query("SELECT * from work_experiences WHERE work_experiences.resumeId = :id")
+    @Query("SELECT * FROM work_experiences WHERE work_experiences.resumeId = :id")
     abstract fun getWorkExperiencesByResume(id: Int): LiveData<List<WorkExperience>>
+
+    @Query("DELETE FROM work_experiences WHERE work_experiences.resumeId = :id")
+    abstract fun deleteAllExperiencesByResume(id: Int)
 
 }

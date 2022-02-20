@@ -3,7 +3,6 @@ package com.example.resumebuilder.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.resumebuilder.ResumeBuilderApp
 import com.example.resumebuilder.data.model.Skill
 import com.example.resumebuilder.data.repositories.implementations.ISkillRepository
 import com.example.resumebuilder.data.repositories.interfaces.SkillRepository

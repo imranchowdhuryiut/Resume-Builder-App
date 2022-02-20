@@ -15,4 +15,7 @@ abstract class SkillDao: BaseDao<Skill>() {
     @Query("SELECT * from skills WHERE skills.resumeId = :id")
     abstract fun getSkillsByResume(id: Int): LiveData<List<Skill>>
 
+    @Query("DELETE FROM skills WHERE skills.resumeId = :id")
+    abstract fun deleteAllSkillsByResume(id: Int)
+
 }

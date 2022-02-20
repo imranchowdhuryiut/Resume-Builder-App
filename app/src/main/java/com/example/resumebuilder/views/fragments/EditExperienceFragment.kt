@@ -5,13 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resumebuilder.R
 import com.example.resumebuilder.data.model.WorkExperience
 import com.example.resumebuilder.databinding.FragmentEditExperienceBinding
 import com.example.resumebuilder.utils.OnItemClickCallback
+import com.example.resumebuilder.viewModels.WorkExperienceViewModel
 import com.example.resumebuilder.views.adapters.WorkExperienceAdapter
 import com.google.android.material.snackbar.Snackbar
 
@@ -21,7 +24,9 @@ class EditExperienceFragment : Fragment(), OnItemClickCallback<WorkExperience> {
 
     private val mAdapter: WorkExperienceAdapter = WorkExperienceAdapter(this)
 
-    private val mList: MutableList<WorkExperience> = mutableListOf()
+    private val args by navArgs<EditExperienceFragmentArgs>()
+
+    private val mViewModel by viewModels<WorkExperienceViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +40,14 @@ class EditExperienceFragment : Fragment(), OnItemClickCallback<WorkExperience> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        getSavedExperiences()
+    }
+
+    private fun getSavedExperiences() {
+        mViewModel.getExperienceByResumeId(args.resumeId)
+            .observe(viewLifecycleOwner, {data->
+                mAdapter.submitList(data)
+            })
     }
 
     private fun initView() {
@@ -74,9 +87,12 @@ class EditExperienceFragment : Fragment(), OnItemClickCallback<WorkExperience> {
         val companyName = _binding?.etCompanyName?.text.toString()
         val duration = _binding?.etDuration?.text.toString().toInt()
         clearEditView()
-        mList.add(WorkExperience(companyName = companyName, duration = duration))
-        mAdapter.submitList(mList)
-        mAdapter.notifyItemChanged(mList.size - 1)
+        val model = WorkExperience(
+            companyName = companyName,
+            duration = duration,
+            resumeId = args.resumeId
+        )
+        mViewModel.saveWorkExperience(model)
     }
 
     private fun clearEditView() {
@@ -102,7 +118,7 @@ class EditExperienceFragment : Fragment(), OnItemClickCallback<WorkExperience> {
     }
 
     override fun onClick(model: WorkExperience) {
-
+        mViewModel.deleteWorkExperience(model)
     }
 
 }

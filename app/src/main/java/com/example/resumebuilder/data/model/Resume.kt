@@ -12,6 +12,7 @@ data class Resume(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
     var name: String? = null,
+    var objective: String? = null,
     var specialization: String? = null,
     var date: Long? = null
 )
