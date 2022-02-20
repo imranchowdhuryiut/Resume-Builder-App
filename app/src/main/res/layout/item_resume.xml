@@ -16,6 +16,9 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:id="@+id/imgProfile"
             android:layout_width="0dp"
             android:layout_weight="0.3"
             tools:src="@drawable/ic_file_upload_black_24dp"

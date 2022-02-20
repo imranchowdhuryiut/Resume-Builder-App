@@ -39,7 +39,11 @@
         android:id="@+id/personalDetailsFragment"
         android:name="com.example.resumebuilder.views.fragments.EditPersonalDetailsFragment"
         android:label="fragment_personal_details"
-        tools:layout="@layout/fragment_personal_details" />
+        tools:layout="@layout/fragment_personal_details" >
+        <argument
+            android:name="resumeId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/editObjectiveFragment"
         android:name="com.example.resumebuilder.views.fragments.EditObjectiveFragment"

@@ -38,7 +38,9 @@ class EditDetailsFragment : Fragment() {
             }
             btnPersonalDetail.setOnClickListener {
                 findNavController().navigate(
-                    EditDetailsFragmentDirections.actionEditDetailsFragmentToPersonalDetailsFragment()
+                    EditDetailsFragmentDirections.actionEditDetailsFragmentToPersonalDetailsFragment(
+                        args.resumeId
+                    )
                 )
             }
             btnObjective.setOnClickListener {
