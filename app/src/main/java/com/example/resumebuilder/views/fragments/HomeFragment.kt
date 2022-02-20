@@ -15,12 +15,12 @@ import com.example.resumebuilder.data.model.Resume
 import com.example.resumebuilder.databinding.FragmentHomeBinding
 import com.example.resumebuilder.databinding.LayoutCrateResumeBinding
 import com.example.resumebuilder.utils.dateFormat
-import com.example.resumebuilder.utils.onResumeClickCallback
+import com.example.resumebuilder.utils.OnResumeClickCallback
 import com.example.resumebuilder.viewModels.ResumeViewModel
 import com.example.resumebuilder.views.adapters.ResumeAdapter
 import java.util.*
 
-class HomeFragment : Fragment(), onResumeClickCallback<Resume> {
+class HomeFragment : Fragment(), OnResumeClickCallback<Resume> {
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -41,13 +41,10 @@ class HomeFragment : Fragment(), onResumeClickCallback<Resume> {
         super.onViewCreated(view, savedInstanceState)
         initView()
         getSavedResumes()
-        observeResumes()
+        observeSavedResume()
     }
 
-    private fun observeResumes() {
-        mViewModel.getAllSavedResumes().observe(viewLifecycleOwner, {
-            mAdapter.submitList(it)
-        })
+    private fun observeSavedResume() {
         mViewModel.resumeModel.observe(viewLifecycleOwner, { id ->
             if (id > 0) {
                 findNavController().navigate(
@@ -61,7 +58,9 @@ class HomeFragment : Fragment(), onResumeClickCallback<Resume> {
     }
 
     private fun getSavedResumes() {
-        mViewModel.getAllSavedResumes()
+        mViewModel.getAllSavedResumes().observe(viewLifecycleOwner, {
+            mAdapter.submitList(it)
+        })
     }
 
     private fun initView() {

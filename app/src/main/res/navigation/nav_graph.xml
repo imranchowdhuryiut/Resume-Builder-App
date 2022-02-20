@@ -54,5 +54,9 @@
         android:id="@+id/editSkillsFragment"
         android:name="com.example.resumebuilder.views.fragments.EditSkillsFragment"
         android:label="fragment_edit_skills"
-        tools:layout="@layout/fragment_edit_skills" />
+        tools:layout="@layout/fragment_edit_skills" >
+        <argument
+            android:name="resumeId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

@@ -53,7 +53,7 @@ class EditDetailsFragment : Fragment() {
             }
             btnSkill.setOnClickListener {
                 findNavController().navigate(
-                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditSkillsFragment()
+                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditSkillsFragment(args.resumeId)
                 )
             }
             btnEducationalDetails.setOnClickListener {
