@@ -72,7 +72,11 @@ class EditDetailsFragment : Fragment() {
                 )
             }
             btnProjects.setOnClickListener {
-
+                findNavController().navigate(
+                    EditDetailsFragmentDirections.actionEditDetailsFragmentToEditProjectFragment(
+                        args.resumeId
+                    )
+                )
             }
         }
     }

@@ -40,7 +40,7 @@ fun Context.showGrantPermissionAlertDialog(
             "For choosing image you must allow this permission.\n\nNow follow the steps below\n\nOpen settings from the below button\nClick on permission\nAllow access for $permissionName"
         )
         .setPositiveButton(positiveButtonText) { _, _ ->
-            onPositiveButtonClick.hashCode()
+            onPositiveButtonClick.invoke()
         }
         .create()
         .show()

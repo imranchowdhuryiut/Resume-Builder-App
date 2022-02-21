@@ -24,6 +24,7 @@ class IResumeRepository: ResumeRepository {
             ResumeBuilderApp.appDb.workExperiencesDao().deleteAllExperiencesByResume(it)
             ResumeBuilderApp.appDb.skillDao().deleteAllSkillsByResume(it)
             ResumeBuilderApp.appDb.educationDao().deleteAllEducationsByResume(it)
+            ResumeBuilderApp.appDb.projectDao().deleteAllProjectsByResume(it)
         }
     }
 
