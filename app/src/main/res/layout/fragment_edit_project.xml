@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.fragments.EditProjectFragment">
+
+    <include
+        android:id="@+id/layoutCustomToolbar"
+        layout="@layout/layout_toolbar"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutCustomToolbar"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="@dimen/_4sdp"
+        android:layout_margin="@dimen/_4sdp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:paddingRight="@dimen/_4sdp"
+                android:paddingLeft="@dimen/_4sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    tools:listitem="@layout/item_project"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rvProject"/>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llProjectView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:errorEnabled="true"
+                            app:hintTextAppearance="@android:style/TextAppearance.Medium">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etProjectName"
+                                android:layout_width="match_parent"
+                                android:minLines="1"
+                                android:textAlignment="textStart"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/project_name" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_weight="0.48"
+                                android:layout_height="wrap_content"
+                                app:errorEnabled="true"
+                                app:hintTextAppearance="@android:style/TextAppearance.Medium">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etProjectTeamSize"
+                                    android:layout_width="match_parent"
+                                    android:maxLines="1"
+                                    android:inputType="number"
+                                    android:textAlignment="textStart"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/team_size" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="0.04"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_weight="0.48"
+                                android:layout_height="wrap_content"
+                                app:errorEnabled="true"
+                                app:hintTextAppearance="@android:style/TextAppearance.Medium">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etProjectRole"
+                                    android:layout_width="match_parent"
+                                    android:maxLines="1"
+                                    android:inputType="text"
+                                    android:textAlignment="textStart"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/role" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:errorEnabled="true"
+                            app:hintTextAppearance="@android:style/TextAppearance.Medium">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etProjectSummary"
+                                android:layout_width="match_parent"
+                                android:minLines="3"
+                                android:textAlignment="textStart"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/project_summary" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:errorEnabled="true"
+                            app:hintTextAppearance="@android:style/TextAppearance.Medium">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etProjectTechnology"
+                                android:layout_width="match_parent"
+                                android:minLines="1"
+                                android:textAlignment="textStart"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/used_technology" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddProject"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:backgroundTint="@color/success"
+                        android:text="@string/add"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:icon="@drawable/ic_add"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/form_personal_ll_form" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSaveProject"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:backgroundTint="@color/success"
+                        android:text="@string/save"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:icon="@drawable/ic_check"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/form_personal_ll_form" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

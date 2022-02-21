@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_editDetailsFragment_to_editEducationFragment"
             app:destination="@id/editEducationFragment" />
+        <action
+            android:id="@+id/action_editDetailsFragment_to_editProjectFragment"
+            app:destination="@id/editProjectFragment" />
     </fragment>
     <fragment
         android:id="@+id/personalDetailsFragment"
@@ -79,6 +82,15 @@
         android:name="com.example.resumebuilder.views.fragments.EditEducationFragment"
         android:label="fragment_edit_education"
         tools:layout="@layout/fragment_edit_education" >
+        <argument
+            android:name="resumeId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProjectFragment"
+        android:name="com.example.resumebuilder.views.fragments.EditProjectFragment"
+        android:label="fragment_edit_project"
+        tools:layout="@layout/fragment_edit_project" >
         <argument
             android:name="resumeId"
             app:argType="integer" />

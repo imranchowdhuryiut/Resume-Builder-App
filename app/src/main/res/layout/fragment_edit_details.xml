@@ -169,7 +169,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="@android:color/white"
                     android:gravity="center_vertical"
-                    android:text="Projects"
+                    android:text="@string/projects"
                     android:textColor="@android:color/black"
                     app:icon="@drawable/ic_project"
                     app:iconGravity="end"

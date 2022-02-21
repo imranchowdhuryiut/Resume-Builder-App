@@ -33,7 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/degree_colon"
+                android:text="@string/project_name_colon"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"/>
@@ -43,9 +43,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.65"
                 android:textColor="@color/black"
-                tools:text="Bachelor of Science"
+                tools:text="My Telenor"
                 android:textSize="@dimen/_14ssp"
-                android:id="@+id/tvDegree"/>
+                android:id="@+id/tvProjectName"/>
 
         </LinearLayout>
         <LinearLayout
@@ -58,7 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/passing_year_colon"
+                android:text="@string/summary_colon"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"/>
@@ -70,7 +70,7 @@
                 android:textColor="@color/black"
                 tools:text="2017"
                 android:textSize="@dimen/_14ssp"
-                android:id="@+id/tvPassingYear"/>
+                android:id="@+id/tvProjectSummary"/>
 
         </LinearLayout>
         <LinearLayout
@@ -83,7 +83,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/grade_colon"
+                android:text="@string/technologies"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"/>
@@ -95,7 +95,58 @@
                 android:textColor="@color/black"
                 tools:text="3.75"
                 android:textSize="@dimen/_14ssp"
-                android:id="@+id/tvGrade"/>
+                android:id="@+id/tvUsedTechnologies"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/role_colon"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65"
+                android:textColor="@color/black"
+                tools:text="Android Developer"
+                android:textSize="@dimen/_14ssp"
+                android:id="@+id/tvRole"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/team_size_colon"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65"
+                android:textColor="@color/black"
+                tools:text="3"
+                android:textSize="@dimen/_14ssp"
+                android:id="@+id/tvTeamSize"/>
 
         </LinearLayout>
 

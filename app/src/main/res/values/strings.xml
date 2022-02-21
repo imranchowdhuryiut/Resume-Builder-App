@@ -42,4 +42,15 @@
     <string name="degree_colon">Degree:</string>
     <string name="passing_year_colon">Passing Year:</string>
     <string name="grade_colon">Grade:</string>
+    <string name="projects">Projects</string>
+    <string name="project_name">Project Name</string>
+    <string name="project_summary">Project Summary</string>
+    <string name="used_technology">Used Technology</string>
+    <string name="team_size">Team Size</string>
+    <string name="role">Role</string>
+    <string name="project_name_colon">Project Name:</string>
+    <string name="summary_colon">Summary:</string>
+    <string name="technologies">Technologies:</string>
+    <string name="role_colon">Role:</string>
+    <string name="team_size_colon">Team Size:</string>
 </resources>
