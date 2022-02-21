@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.example.resumebuilder.R
 import com.example.resumebuilder.data.model.Education
 import com.example.resumebuilder.databinding.FragmentEditEducationBinding
 import com.example.resumebuilder.utils.OnItemClickCallback
+import com.example.resumebuilder.viewModels.EducationViewModel
 import com.example.resumebuilder.views.adapters.EducationAdapter
 import com.google.android.material.snackbar.Snackbar
 
@@ -23,6 +25,8 @@ class EditEducationFragment : Fragment(), OnItemClickCallback<Education> {
     private val mAdapter: EducationAdapter = EducationAdapter(this)
 
     private val args by navArgs<EditEducationFragmentArgs>()
+
+    private val mViewModel by viewModels<EducationViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +40,14 @@ class EditEducationFragment : Fragment(), OnItemClickCallback<Education> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        getSavedEducations()
+    }
+
+    private fun getSavedEducations() {
+        mViewModel.getEducationByResumeId(args.resumeId)
+            .observe(viewLifecycleOwner, {list->
+                mAdapter.submitList(list)
+            })
     }
 
     private fun initView() {
@@ -70,6 +82,7 @@ class EditEducationFragment : Fragment(), OnItemClickCallback<Education> {
             degree = degree,
             passingYear = passingYear
         )
+        mViewModel.saveEducation(model)
     }
 
     private fun clearEditView() {
@@ -116,6 +129,6 @@ class EditEducationFragment : Fragment(), OnItemClickCallback<Education> {
     }
 
     override fun onClick(model: Education) {
-
+        mViewModel.deleteEducation(model)
     }
 }
