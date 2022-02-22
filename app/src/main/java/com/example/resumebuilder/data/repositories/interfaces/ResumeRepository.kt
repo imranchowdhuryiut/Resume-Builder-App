@@ -2,6 +2,8 @@ package com.example.resumebuilder.data.repositories.interfaces
 
 import androidx.lifecycle.LiveData
 import com.example.resumebuilder.data.model.Resume
+import com.example.resumebuilder.data.model.ResumeWrapper
+import com.example.resumebuilder.utils.Resource
 
 /**
  * Created by Imran Chowdhury on 2/19/2022.
@@ -27,5 +29,5 @@ interface ResumeRepository {
     )
 
     fun getPersonalInfoByResume(resumeId: Int): LiveData<Resume>
-
+    suspend fun getFullResume(resumeId: Int): ResumeWrapper
 }

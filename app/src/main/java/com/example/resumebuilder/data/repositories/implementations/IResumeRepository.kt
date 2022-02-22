@@ -3,6 +3,7 @@ package com.example.resumebuilder.data.repositories.implementations
 import androidx.lifecycle.LiveData
 import com.example.resumebuilder.ResumeBuilderApp
 import com.example.resumebuilder.data.model.Resume
+import com.example.resumebuilder.data.model.ResumeWrapper
 import com.example.resumebuilder.data.repositories.interfaces.ResumeRepository
 
 /**
@@ -54,5 +55,27 @@ class IResumeRepository: ResumeRepository {
 
     override fun getPersonalInfoByResume(resumeId: Int): LiveData<Resume> {
         return ResumeBuilderApp.appDb.resumeDao().getPersonalInfoByResume(resumeId)
+    }
+
+    override suspend fun getFullResume(resumeId: Int): ResumeWrapper {
+        val resume = ResumeBuilderApp.appDb.resumeDao().getResumeById(resumeId)
+        val workExperience =
+            ResumeBuilderApp.appDb.workExperiencesDao().getWorkExperiencesByResumeAsync(resumeId)
+        val skills = ResumeBuilderApp.appDb.skillDao().getSkillsByResumeAsync(resumeId)
+        val education = ResumeBuilderApp.appDb.educationDao().getEducationsByResumeAsync(resumeId)
+        val projects = ResumeBuilderApp.appDb.projectDao().deleteAllProjectsByResumeAsync(resumeId)
+        return ResumeWrapper(
+            name = resume?.name,
+            objective = resume?.objective,
+            specialization = resume?.specialization,
+            skills = skills,
+            workExperiences = workExperience,
+            educations = education,
+            projects = projects,
+            mobileNumber = resume?.mobileNumber,
+            emailAddress = resume?.emailAddress,
+            address = resume?.address,
+            imagePath = resume?.imagePath
+        )
     }
 }

@@ -16,6 +16,9 @@ abstract class EducationDao: BaseDao<Education>() {
     @Query("SELECT * from educations WHERE educations.resumeId = :id")
     abstract fun getEducationsByResume(id: Int): LiveData<List<Education>>
 
+    @Query("SELECT * from educations WHERE educations.resumeId = :id")
+    abstract fun getEducationsByResumeAsync(id: Int): List<Education?>
+
     @Query("DELETE FROM educations WHERE educations.resumeId = :id")
     abstract fun deleteAllEducationsByResume(id: Int)
 

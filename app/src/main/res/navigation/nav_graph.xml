@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_editDetailsFragment_to_editProjectFragment"
             app:destination="@id/editProjectFragment" />
+        <action
+            android:id="@+id/action_editDetailsFragment_to_writePdfActivity"
+            app:destination="@id/writePdfActivity" />
     </fragment>
     <fragment
         android:id="@+id/personalDetailsFragment"
@@ -95,4 +98,13 @@
             android:name="resumeId"
             app:argType="integer" />
     </fragment>
+    <activity
+        android:id="@+id/writePdfActivity"
+        android:name="com.example.resumebuilder.views.WritePdfActivity"
+        android:label="activity_write_pdf"
+        tools:layout="@layout/activity_write_pdf" >
+        <argument
+            android:name="resume"
+            app:argType="com.example.resumebuilder.data.model.ResumeWrapper" />
+    </activity>
 </navigation>
