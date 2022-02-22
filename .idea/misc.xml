@@ -31,6 +31,9 @@
         <entry key="..\:/Apps/Personal/ResumeBuilder/app/src/main/res/layout/item_skill.xml" value="0.25416666666666665" />
         <entry key="..\:/Apps/Personal/ResumeBuilder/app/src/main/res/layout/layout_crate_resume.xml" value="0.25416666666666665" />
         <entry key="..\:/Apps/Personal/ResumeBuilder/app/src/main/res/layout/layout_toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Apps/Personal/ResumeBuilder/app/src/main/res/menu/menu_pdf_editor.xml" value="0.25416666666666665" />
+        <entry key="..\:/Apps/Personal/ResumeBuilder/app/src/main/res/menu/menu_pdf_viewer.xml" value="0.25416666666666665" />
+        <entry key="..\:/Apps/Personal/ResumeBuilder/pdfcreator/src/main/res/layout/activity_pdfcreator.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

@@ -18,4 +18,7 @@ abstract class WorkExperienceDao: BaseDao<WorkExperience>() {
     @Query("DELETE FROM work_experiences WHERE work_experiences.resumeId = :id")
     abstract fun deleteAllExperiencesByResume(id: Int)
 
+    @Query("SELECT * FROM work_experiences WHERE work_experiences.resumeId = :id")
+    abstract fun getWorkExperiencesByResumeAsync(id: Int): List<WorkExperience?>
+
 }

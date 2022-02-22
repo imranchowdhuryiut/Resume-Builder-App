@@ -5,16 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.resumebuilder.R
 import com.example.resumebuilder.databinding.FragmentEditDetailsBinding
+import com.example.resumebuilder.utils.Resource
+import com.example.resumebuilder.viewModels.ResumeViewModel
 
 class EditDetailsFragment : Fragment() {
 
     private var _binding: FragmentEditDetailsBinding? = null
 
     private val args by navArgs<EditDetailsFragmentArgs>()
+
+    private val mViewModel by viewModels<ResumeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -78,7 +84,37 @@ class EditDetailsFragment : Fragment() {
                     )
                 )
             }
+            btnGeneratePdf.setOnClickListener {
+                getResume()
+            }
         }
+    }
+
+    private fun getResume() {
+        mViewModel.getResume(args.resumeId).observe(viewLifecycleOwner, { resources ->
+            resources?.let {
+                when (resources.status) {
+                    Resource.Status.SUCCESS -> {
+                        _binding?.progressBar?.visibility = View.GONE
+                        val data = resources.data
+                        data?.let {
+                            findNavController().navigate(
+                                EditDetailsFragmentDirections.actionEditDetailsFragmentToWritePdfActivity(
+                                    it
+                                )
+                            )
+                        }
+                    }
+                    Resource.Status.ERROR -> {
+                        _binding?.progressBar?.visibility = View.GONE
+                        Toast.makeText(requireContext(), resources.msg, Toast.LENGTH_SHORT).show()
+                    }
+                    Resource.Status.LOADING -> {
+                        _binding?.progressBar?.visibility = View.VISIBLE
+                    }
+                }
+            }
+        })
     }
 
     override fun onDestroy() {

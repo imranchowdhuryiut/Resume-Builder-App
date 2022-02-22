@@ -20,4 +20,7 @@ abstract class ProjectDao: BaseDao<Project>() {
     @Query("DELETE FROM projects WHERE projects.resumeId = :id")
     abstract fun deleteAllProjectsByResume(id: Int)
 
+    @Query("SELECT * from projects WHERE projects.resumeId = :id")
+    abstract fun deleteAllProjectsByResumeAsync(id: Int): List<Project?>
+
 }

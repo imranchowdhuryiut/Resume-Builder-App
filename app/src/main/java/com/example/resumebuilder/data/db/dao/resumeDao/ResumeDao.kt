@@ -44,6 +44,6 @@ abstract class ResumeDao: BaseDao<Resume>() {
     @Query("SELECT * FROM resumes WHERE id = :resumeId")
     abstract fun getPersonalInfoByResume(resumeId: Int): LiveData<Resume>
 
-    //SELECT resumes.id, resumes.name, resumes.objective, skills.skill, skills.rate FROM resumes JOIN skills on resumes.id = skills.resumeId
-
+    @Query("SELECT * FROM resumes WHERE id = :resumeId")
+    abstract fun getResumeById(resumeId: Int): Resume?
 }

@@ -53,4 +53,9 @@
     <string name="technologies">Technologies:</string>
     <string name="role_colon">Role:</string>
     <string name="team_size_colon">Team Size:</string>
+    <string name="generate_pdf">Generate Pdf</string>
+    <string name="text_generated_file_error">Error</string>
+    <string name="text_create_pdf">Create Pdf</string>
+    <string name="text_print">Print</string>
+    <string name="text_share">Share</string>
 </resources>
